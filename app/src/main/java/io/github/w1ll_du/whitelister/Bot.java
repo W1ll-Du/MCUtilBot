@@ -38,6 +38,7 @@ public class Bot {
             map.put("server_id", "9012345678");
             map.put("bot_channel_id", "8901234567");
             map.put("whitelist_role_id", "6789012345");
+            map.put("changelog_channel_id", "3456789012");
             // fdlink cfg
             map.put("fdlink_bot_id", "0123456789");
             map.put("log_channel_id", "7890123456");
