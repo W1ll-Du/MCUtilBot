@@ -10,7 +10,8 @@ public class StatsCommand implements ICommand {
     public void handle(CommandContext ctx) {
         // [username] [statistic name]
         String cmd;
-        ctx.getChannel().sendMessage(Utils.rconCommand(cmd)).queue();
+        // get directly from world/stats/uuid.json
+        // ctx.getChannel().sendMessage(Utils.rconCommand(cmd)).queue();
     }
 
     @Override
