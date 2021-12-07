@@ -22,9 +22,6 @@ public class CommandManager {
 
     public CommandManager() {
         // addCommand(new PingCommand());
-        addCommand(new LinkCommand());
-        addCommand(new UnlinkCommand());
-        addCommand(new WhitelistCommand());
     }
 
     @Nullable
