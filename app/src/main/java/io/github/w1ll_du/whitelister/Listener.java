@@ -59,7 +59,6 @@ public class Listener extends ListenerAdapter {
             event.getJDA().shutdown();
             BotCommons.shutdown(event.getJDA());
         }
-        // TODO: fdLinkHandler
         try {
             manager.handle(event, prefix, playerMap, conf);
         } catch (IOException e) {
