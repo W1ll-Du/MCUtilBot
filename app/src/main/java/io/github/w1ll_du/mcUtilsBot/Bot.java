@@ -1,4 +1,4 @@
-package io.github.w1ll_du.whitelister;
+package io.github.w1ll_du.mcUtilsBot;
 
 import javax.security.auth.login.LoginException;
 import java.io.IOException;

@@ -1,15 +1,14 @@
-package io.github.w1ll_du.whitelister.command.commands;
+package io.github.w1ll_du.mcUtilsBot.command.commands;
 
-import io.github.w1ll_du.whitelister.command.CommandContext;
-import io.github.w1ll_du.whitelister.command.ICommand;
-import io.github.w1ll_du.whitelister.Utils;
+import io.github.w1ll_du.mcUtilsBot.command.CommandContext;
+import io.github.w1ll_du.mcUtilsBot.command.ICommand;
+
 import java.util.List;
 
 public class StatsCommand implements ICommand {
     @Override
     public void handle(CommandContext ctx) {
-        // [username] [statistic name]
-        String cmd;
+        // [username] [stat type] [stat name]
         // get directly from world/stats/uuid.json
         // ctx.getChannel().sendMessage(Utils.rconCommand(cmd)).queue();
     }

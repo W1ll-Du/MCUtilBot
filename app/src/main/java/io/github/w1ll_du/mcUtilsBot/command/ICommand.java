@@ -1,4 +1,4 @@
-package io.github.w1ll_du.whitelister.command;
+package io.github.w1ll_du.mcUtilsBot.command;
 
 import java.util.List;
 
