@@ -21,7 +21,6 @@ public class CommandManager {
     private final List<ICommand> commands = new ArrayList<>();
 
     public CommandManager() {
-        // addCommand(new PingCommand());
         addCommand(new StatsCommand());
         addCommand(new cmToMCommand());
         addCommand(new ticksToHours());
