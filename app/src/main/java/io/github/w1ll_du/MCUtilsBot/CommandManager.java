@@ -3,6 +3,9 @@ package io.github.w1ll_du.MCUtilsBot;
 import io.github.w1ll_du.MCUtilsBot.command.CommandContext;
 import io.github.w1ll_du.MCUtilsBot.command.ICommand;
 import io.github.w1ll_du.MCUtilsBot.command.commands.StatsCommand;
+import io.github.w1ll_du.MCUtilsBot.command.commands.cmToMCommand;
+import io.github.w1ll_du.MCUtilsBot.command.commands.ticksToHours;
+import io.github.w1ll_du.MCUtilsBot.command.commands.ticksToMinutes;
 import net.dv8tion.jda.api.events.message.guild.GuildMessageReceivedEvent;
 import org.apache.commons.collections4.BidiMap;
 
@@ -20,6 +23,9 @@ public class CommandManager {
     public CommandManager() {
         // addCommand(new PingCommand());
         addCommand(new StatsCommand());
+        addCommand(new cmToMCommand());
+        addCommand(new ticksToHours());
+        addCommand(new ticksToMinutes());
     }
 
     @Nullable
