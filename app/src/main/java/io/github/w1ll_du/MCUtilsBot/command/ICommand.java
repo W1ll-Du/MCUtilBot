@@ -1,4 +1,4 @@
-package io.github.w1ll_du.mcUtilsBot.command;
+package io.github.w1ll_du.MCUtilsBot.command;
 
 import java.util.List;
 

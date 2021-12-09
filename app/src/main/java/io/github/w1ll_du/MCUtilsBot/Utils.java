@@ -1,4 +1,4 @@
-package io.github.w1ll_du.mcUtilsBot;
+package io.github.w1ll_du.MCUtilsBot;
 
 import com.github.t9t.minecraftrconclient.RconClient;
 import com.mashape.unirest.http.Unirest;

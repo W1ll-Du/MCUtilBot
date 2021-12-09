@@ -1,7 +1,7 @@
-package io.github.w1ll_du.mcUtilsBot.command.commands;
+package io.github.w1ll_du.MCUtilsBot.command.commands;
 
-import io.github.w1ll_du.mcUtilsBot.command.CommandContext;
-import io.github.w1ll_du.mcUtilsBot.command.ICommand;
+import io.github.w1ll_du.MCUtilsBot.command.CommandContext;
+import io.github.w1ll_du.MCUtilsBot.command.ICommand;
 import net.dv8tion.jda.api.JDA;
 
 public class PingCommand implements ICommand {

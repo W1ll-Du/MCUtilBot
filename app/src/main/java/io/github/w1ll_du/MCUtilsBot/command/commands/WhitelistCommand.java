@@ -1,8 +1,8 @@
-package io.github.w1ll_du.mcUtilsBot.command.commands;
+package io.github.w1ll_du.MCUtilsBot.command.commands;
 
-import io.github.w1ll_du.mcUtilsBot.command.CommandContext;
-import io.github.w1ll_du.mcUtilsBot.command.ICommand;
-import io.github.w1ll_du.mcUtilsBot.Utils;
+import io.github.w1ll_du.MCUtilsBot.command.CommandContext;
+import io.github.w1ll_du.MCUtilsBot.command.ICommand;
+import io.github.w1ll_du.MCUtilsBot.Utils;
 
 public class WhitelistCommand implements ICommand {
     @Override

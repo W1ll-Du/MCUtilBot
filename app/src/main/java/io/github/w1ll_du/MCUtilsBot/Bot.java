@@ -1,4 +1,4 @@
-package io.github.w1ll_du.mcUtilsBot;
+package io.github.w1ll_du.MCUtilsBot;
 
 import javax.security.auth.login.LoginException;
 import java.io.IOException;
@@ -25,7 +25,7 @@ public class Bot {
 
         try {
             ObjectMapper mapper = new ObjectMapper();
-            conf = mapper.readValue(Paths.get("whitelistConfig.json").toFile(), Map.class);
+            conf = mapper.readValue(Paths.get("MCUtilsConfig.json").toFile(), Map.class);
 
         } catch (FileNotFoundException e) {
             e.printStackTrace();
@@ -37,7 +37,7 @@ public class Bot {
             map.put("owner_id", "1234567890");
             map.put("server_id", "9012345678");
             map.put("bot_channel_id", "8901234567");
-            map.put("whitelist_role_id", "6789012345");
+            // map.put("whitelist_role_id", "6789012345");
             map.put("changelog_channel_id", "3456789012");
             // fdlink cfg
             map.put("fdlink_bot_id", "0123456789");
@@ -47,7 +47,7 @@ public class Bot {
             map.put("rcon_port", "25575");
             map.put("rcon_password", "password");
             try {
-                writer.writeValue(Paths.get("whitelistConfig.json").toFile(), map);
+                writer.writeValue(Paths.get("MCUtilsConfig.json").toFile(), map);
             } catch (Exception ex) {
                 ex.printStackTrace();
             }

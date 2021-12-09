@@ -1,8 +1,8 @@
-package io.github.w1ll_du.mcUtilsBot;
+package io.github.w1ll_du.MCUtilsBot;
 
 import javax.annotation.Nonnull;
 
-import io.github.w1ll_du.mcUtilsBot.command.commands.fdLinkHandler;
+import io.github.w1ll_du.MCUtilsBot.command.commands.fdLinkHandler;
 import me.duncte123.botcommons.BotCommons;
 import net.dv8tion.jda.api.events.message.guild.GuildMessageReceivedEvent;
 import net.dv8tion.jda.api.hooks.ListenerAdapter;
@@ -41,8 +41,8 @@ public class Listener extends ListenerAdapter {
         if (event.getAuthor().getId().equals(conf.get("fdlink_bot_id"))) {
             fdLinkHandler.handle(event, playerMap, conf);
         }
-        if (event.getChannel().getId().equals(conf.get("changelog_channel_id))
-            && ! event.getAuthor.getId().equals(owner_id)) {
+        if (event.getChannel().getId().equals(conf.get("changelog_channel_id"))
+            && ! event.getAuthor().getId().equals(owner_id)) {
             // TODO: only allow java and filter out bedrock
         }
         if (event.getAuthor().isBot()) {
