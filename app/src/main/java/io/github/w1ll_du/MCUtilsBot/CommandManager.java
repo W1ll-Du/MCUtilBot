@@ -45,7 +45,7 @@ public class CommandManager {
         }
     }
 
-    void handle(GuildMessageReceivedEvent event, String prefix, BidiMap<String, String> playerMap, Map<String, String> conf) throws IOException {
+    void handle(GuildMessageReceivedEvent event, String prefix, Map<String, String> conf) throws IOException {
 
         String[] split = event.getMessage().getContentRaw()
             .replaceFirst("(?i)" + Pattern.quote(prefix), "")
@@ -58,7 +58,7 @@ public class CommandManager {
             event.getChannel().sendTyping().queue();
             List<String> args = Arrays.asList(split).subList(1, split.length);
 
-            CommandContext ctx = new CommandContext(event, args, playerMap, conf);
+            CommandContext ctx = new CommandContext(event, args, conf);
 
             cmd.handle(ctx);
         }

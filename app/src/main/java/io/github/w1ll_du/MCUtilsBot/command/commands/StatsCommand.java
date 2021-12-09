@@ -55,7 +55,6 @@ public class StatsCommand implements ICommand {
         } catch (NullPointerException e) {
             ctx.getChannel().sendMessage("Something went wrong, please try again.").queue();
         }
-        // ctx.getChannel().sendMessage(Utils.rconCommand(cmd)).queue();
     }
 
     @Override

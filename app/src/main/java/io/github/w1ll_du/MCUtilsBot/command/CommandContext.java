@@ -11,13 +11,11 @@ public class CommandContext implements ICommandContext {
 
     private final GuildMessageReceivedEvent event;
     private final List<String> args;
-    private BidiMap<String, String> playerMap;
     private Map<String, String> conf;
 
-    public CommandContext(GuildMessageReceivedEvent event, List<String> args, BidiMap<String, String> playerMap, Map<String, String> conf) {
+    public CommandContext(GuildMessageReceivedEvent event, List<String> args, Map<String, String> conf) {
         this.event = event;
         this.args = args;
-        this.playerMap = playerMap;
         this.conf = conf;
     }
 
@@ -33,10 +31,6 @@ public class CommandContext implements ICommandContext {
 
     public List<String> getArgs() {
         return this.args;
-    }
-
-    public BidiMap<String, String> getPlayerMap() {
-        return playerMap;
     }
 
     public Map<String, String> getConf() {

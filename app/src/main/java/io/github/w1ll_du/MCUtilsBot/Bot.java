@@ -21,7 +21,6 @@ public class Bot {
     private Bot() throws LoginException {
 
         Map<String, String> conf = null;
-        BidiMap<String, String> playerMap = null;
 
         try {
             ObjectMapper mapper = new ObjectMapper();
@@ -33,17 +32,13 @@ public class Bot {
             Map<String, String> map = new LinkedHashMap<>();
             // discord cfg
             map.put("token", "YOUR TOKEN HERE");
-            map.put("prefix", "w!");
+            map.put("prefix", "u!");
             map.put("owner_id", "1234567890");
-            map.put("server_id", "9012345678");
+            map.put("discord_server_id", "9012345678");
             map.put("bot_channel_id", "8901234567");
-            // map.put("whitelist_role_id", "6789012345");
             map.put("changelog_channel_id", "3456789012");
-            // fdlink cfg
-            map.put("fdlink_bot_id", "0123456789");
-            map.put("log_channel_id", "7890123456");
             // minecraft cfg
-            map.put("server_ip", "5678901234");
+            map.put("mc_server_ip", "5678901234");
             map.put("rcon_port", "25575");
             map.put("rcon_password", "password");
             try {
@@ -55,25 +50,8 @@ public class Bot {
             e.printStackTrace();
         }
 
-        try {
-            ObjectMapper mapper = new ObjectMapper();
-            playerMap = new DualHashBidiMap<String, String>(mapper.readValue(Paths.get("playerMap.json").toFile(), Map.class));
-
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
-            ObjectMapper mapper = new ObjectMapper();
-            Map<String, String> map = new HashMap<>();
-            try {
-                mapper.writeValue(Paths.get("playerMap.json").toFile(), map);
-            } catch (Exception ex) {
-                ex.printStackTrace();
-            }
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
 
         assert conf != null;
-        assert playerMap != null;
         Utils.conf = conf;
         JDABuilder
         .createDefault(conf.get("token"),
@@ -84,7 +62,7 @@ public class Bot {
         .enableIntents(GatewayIntent.GUILD_MEMBERS,
                 GatewayIntent.GUILD_BANS,
                 GatewayIntent.GUILD_MESSAGES)
-        .addEventListeners(new Listener(conf, playerMap))
+        .addEventListeners(new Listener(conf))
         .build();
     }
 

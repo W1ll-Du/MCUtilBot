@@ -2,12 +2,10 @@ package io.github.w1ll_du.MCUtilsBot;
 
 import javax.annotation.Nonnull;
 
-import io.github.w1ll_du.MCUtilsBot.command.commands.fdLinkHandler;
 import me.duncte123.botcommons.BotCommons;
 import net.dv8tion.jda.api.events.message.guild.GuildMessageReceivedEvent;
 import net.dv8tion.jda.api.hooks.ListenerAdapter;
 import net.dv8tion.jda.api.events.ReadyEvent;
-import org.apache.commons.collections4.BidiMap;
 import org.jetbrains.annotations.NotNull;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -21,13 +19,11 @@ public class Listener extends ListenerAdapter {
     Map<String, String> conf;
     private final String prefix;
     private final String owner_id;
-    private BidiMap<String, String> playerMap;
 
-    public Listener(Map<String, String> conf, BidiMap<String, String> playerMap) {
+    public Listener(Map<String, String> conf) {
         this.conf = conf;
         prefix = conf.get("prefix");
         owner_id = conf.get("owner_id");
-        this.playerMap = playerMap;
     }
 
     @Override
@@ -38,9 +34,6 @@ public class Listener extends ListenerAdapter {
     @Override
     public void onGuildMessageReceived(@NotNull GuildMessageReceivedEvent event) {
         String raw = event.getMessage().getContentRaw();
-        if (event.getAuthor().getId().equals(conf.get("fdlink_bot_id"))) {
-            fdLinkHandler.handle(event, playerMap, conf);
-        }
         if (event.getChannel().getId().equals(conf.get("changelog_channel_id"))
             && ! event.getAuthor().getId().equals(owner_id)) {
             // TODO: only allow java and filter out bedrock
@@ -64,7 +57,7 @@ public class Listener extends ListenerAdapter {
             BotCommons.shutdown(event.getJDA());
         }
         try {
-            manager.handle(event, prefix, playerMap, conf);
+            manager.handle(event, prefix, conf);
         } catch (IOException e) {
             e.printStackTrace();
         }
