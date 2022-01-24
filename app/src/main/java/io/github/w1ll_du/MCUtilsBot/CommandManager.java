@@ -2,10 +2,7 @@ package io.github.w1ll_du.MCUtilsBot;
 
 import io.github.w1ll_du.MCUtilsBot.command.CommandContext;
 import io.github.w1ll_du.MCUtilsBot.command.ICommand;
-import io.github.w1ll_du.MCUtilsBot.command.commands.StatsCommand;
-import io.github.w1ll_du.MCUtilsBot.command.commands.cmToMCommand;
-import io.github.w1ll_du.MCUtilsBot.command.commands.ticksToHours;
-import io.github.w1ll_du.MCUtilsBot.command.commands.ticksToMinutes;
+import io.github.w1ll_du.MCUtilsBot.command.commands.*;
 import net.dv8tion.jda.api.events.message.guild.GuildMessageReceivedEvent;
 import org.apache.commons.collections4.BidiMap;
 
@@ -21,10 +18,11 @@ public class CommandManager {
     private final List<ICommand> commands = new ArrayList<>();
 
     public CommandManager() {
-        addCommand(new StatsCommand());
+        addCommand(new statsCommand());
         addCommand(new cmToMCommand());
         addCommand(new ticksToHours());
         addCommand(new ticksToMinutes());
+        addCommand(new rconCommand());
     }
 
     @Nullable

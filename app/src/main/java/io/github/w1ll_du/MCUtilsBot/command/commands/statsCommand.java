@@ -11,7 +11,7 @@ import java.nio.file.Paths;
 import java.util.List;
 import java.util.Map;
 
-public class StatsCommand implements ICommand {
+public class statsCommand implements ICommand {
     @Override
     public void handle(CommandContext ctx) {
         // [username] [stat type] [stat name]
