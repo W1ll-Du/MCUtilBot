@@ -4,5 +4,4 @@ build/
 out/
 app/src/main/resources/config.json
 todo.txt
-MCUtilsConfig.json.json
-playerMap.json
+MCUtilsConfig.json
