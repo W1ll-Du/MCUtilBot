@@ -4,25 +4,25 @@ import io.github.w1ll_du.MCUtilsBot.command.CommandContext;
 import io.github.w1ll_du.MCUtilsBot.command.ICommand;
 import io.github.w1ll_du.MCUtilsBot.command.commands.*;
 import net.dv8tion.jda.api.events.message.guild.GuildMessageReceivedEvent;
-import org.apache.commons.collections4.BidiMap;
 
 import javax.annotation.Nullable;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-import java.util.ArrayList;
 import java.util.Map;
 import java.util.regex.Pattern;
 
 public class CommandManager {
     private final List<ICommand> commands = new ArrayList<>();
 
-    public CommandManager() {
+    public CommandManager(Map<String, String> conf) {
         addCommand(new statsCommand());
         addCommand(new cmToMCommand());
         addCommand(new ticksToHours());
         addCommand(new ticksToMinutes());
         addCommand(new rconCommand());
+        if (conf.get("afkDis").equals("true")) addCommand(new checkAFKCommand());
     }
 
     @Nullable

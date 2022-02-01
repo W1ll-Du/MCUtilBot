@@ -1,20 +1,18 @@
 package io.github.w1ll_du.MCUtilsBot;
 
-import javax.security.auth.login.LoginException;
-import java.io.IOException;
-import java.io.FileNotFoundException;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.LinkedHashMap;
-import java.nio.file.Paths;
+import com.fasterxml.jackson.core.util.DefaultPrettyPrinter;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.ObjectWriter;
-import com.fasterxml.jackson.core.util.DefaultPrettyPrinter;
 import net.dv8tion.jda.api.JDABuilder;
 import net.dv8tion.jda.api.requests.GatewayIntent;
 import net.dv8tion.jda.api.utils.cache.CacheFlag;
-import org.apache.commons.collections4.BidiMap;
-import org.apache.commons.collections4.bidimap.DualHashBidiMap;
+
+import javax.security.auth.login.LoginException;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.nio.file.Paths;
+import java.util.LinkedHashMap;
+import java.util.Map;
 
 public class Bot {
 
@@ -41,6 +39,8 @@ public class Bot {
             map.put("mc_server_ip", "5678901234");
             map.put("rcon_port", "25575");
             map.put("rcon_password", "password");
+            // xisuma's vanillatweaks
+            map.put("afkDis", "false");
             try {
                 writer.writeValue(Paths.get("MCUtilsConfig.json").toFile(), map);
             } catch (Exception ex) {

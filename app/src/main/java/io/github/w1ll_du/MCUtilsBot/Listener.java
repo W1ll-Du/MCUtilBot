@@ -1,21 +1,21 @@
 package io.github.w1ll_du.MCUtilsBot;
 
-import javax.annotation.Nonnull;
-
 import me.duncte123.botcommons.BotCommons;
+import net.dv8tion.jda.api.events.ReadyEvent;
 import net.dv8tion.jda.api.events.message.guild.GuildMessageReceivedEvent;
 import net.dv8tion.jda.api.hooks.ListenerAdapter;
-import net.dv8tion.jda.api.events.ReadyEvent;
 import org.jetbrains.annotations.NotNull;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+
+import javax.annotation.Nonnull;
 import java.io.IOException;
 import java.util.Map;
 
 public class Listener extends ListenerAdapter {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(Listener.class);
-    private final CommandManager manager = new CommandManager();
+    private final CommandManager manager;
     Map<String, String> conf;
     private final String prefix;
     private final String owner_id;
@@ -24,6 +24,7 @@ public class Listener extends ListenerAdapter {
         this.conf = conf;
         prefix = conf.get("prefix");
         owner_id = conf.get("owner_id");
+        manager = new CommandManager(conf);
     }
 
     @Override
