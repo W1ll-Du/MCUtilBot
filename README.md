@@ -6,7 +6,7 @@
 Lists players who are afk according to [AFK Display](https://vanillatweaks.net/picker/datapacks).
 
 #### stats \[MCUsername] \[type] \[name]
-Gets statistic for player as defined by [Vanilla Minecraft](https://minecraft.fandom.com/wiki/Statistics).
+Gets statistic for player as defined by [Vanilla Minecraft](https://minecraft.fandom.com/wiki/Statistics).<br/>
 `minecraft:` is already filled in.
 
 #### cmToM \[number]
