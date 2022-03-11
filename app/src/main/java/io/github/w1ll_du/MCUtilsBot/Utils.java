@@ -15,7 +15,7 @@ public class Utils {
 
     public static String rconCommand(String command) {
         // TODO: put these in the config file
-        try (RconClient client = RconClient.open(conf.get("server_ip"), Integer.parseInt(conf.get("rcon_port")), conf.get("rcon_password"))) {
+        try (RconClient client = RconClient.open(conf.get("mc_server_ip"), Integer.parseInt(conf.get("rcon_port")), conf.get("rcon_password"))) {
             return client.sendCommand(command);
         }
     }
