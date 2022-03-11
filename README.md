@@ -19,6 +19,7 @@ Converts ticks to minutes.
 #### ticksToHours \[number]
 Converts ticks to hours.
 <br/>
+<br/>
 
 ### Admin Commands
 
