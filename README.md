@@ -2,7 +2,7 @@
 
 ## Commands
 
-#### `listAFK`
+#### ``listAFK``
 Lists players who are afk according to [AFK Display](https://vanillatweaks.net/picker/datapacks).
 
 #### `stats [MCUsername] [type] [name] (conversion)`
