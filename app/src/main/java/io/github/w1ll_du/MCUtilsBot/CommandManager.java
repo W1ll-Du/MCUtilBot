@@ -22,11 +22,11 @@ public class CommandManager {
         addCommand(new ticksToHours());
         addCommand(new ticksToMinutes());
         addCommand(new rconCommand());
-        if (conf.get("afkDis").equals("true")) addCommand(new checkAFKCommand());
+        if (conf.get("afkDis").equals("true")) addCommand(new listAFKCommand());
     }
 
     @Nullable
-    private ICommand getCommand(String name) {
+    public ICommand getCommand(String name) {
         for (ICommand cmd : commands) {
             if (cmd.getName().equals(name) || cmd.getAliases().contains(name)) {
                 return cmd;
@@ -56,7 +56,7 @@ public class CommandManager {
             event.getChannel().sendTyping().queue();
             List<String> args = Arrays.asList(split).subList(1, split.length);
 
-            CommandContext ctx = new CommandContext(event, args, conf);
+            CommandContext ctx = new CommandContext(event, args, conf, this);
 
             cmd.handle(ctx);
         }

@@ -1,17 +1,16 @@
 package io.github.w1ll_du.MCUtilsBot.command.commands;
 
-import io.github.w1ll_du.MCUtilsBot.command.CommandContext;
-import io.github.w1ll_du.MCUtilsBot.command.ICommand;
+import io.github.w1ll_du.MCUtilsBot.command.AConversionCommand;
 
-public class ticksToMinutes implements ICommand {
-
-    @Override
-    public void handle(CommandContext ctx) {
-        ctx.getChannel().sendMessage(String.valueOf(Integer.parseInt(ctx.getArgs().get(0)) / 1200.0)).queue();
-    }
+public class ticksToMinutes extends AConversionCommand {
 
     @Override
     public String getName() {
         return "ticksToMinutes";
+    }
+
+    @Override
+    public double convert(int v) {
+        return v / 1200.0;
     }
 }

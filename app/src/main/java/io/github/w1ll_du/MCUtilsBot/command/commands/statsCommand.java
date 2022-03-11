@@ -2,6 +2,7 @@ package io.github.w1ll_du.MCUtilsBot.command.commands;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import io.github.w1ll_du.MCUtilsBot.Utils;
+import io.github.w1ll_du.MCUtilsBot.command.AConversionCommand;
 import io.github.w1ll_du.MCUtilsBot.command.CommandContext;
 import io.github.w1ll_du.MCUtilsBot.command.ICommand;
 import org.json.simple.JSONObject;
@@ -14,13 +15,17 @@ import java.util.Map;
 public class statsCommand implements ICommand {
     @Override
     public void handle(CommandContext ctx) {
-        // [username] [stat type] [stat name]
-        // the bots will need to be in [server folder]/MCUtils
+        // [username] [stat type] [stat name] (conversion)
+        // the bots will need to be in [server folder]/bot
         // get directly from world/stats/uuid.json
         // ../world/stats/uuid.json
         String username = ctx.getArgs().get(0);
         String type = ctx.getArgs().get(1);
         String name = ctx.getArgs().get(2);
+        AConversionCommand conversion = new identityCommand();
+        if (ctx.getArgs().size() > 3 && ctx.getManager().getCommand(ctx.getArgs().get(3)) != null) {
+            conversion = ctx.getManager().getCommand(ctx.getArgs().get(3)).getConverter();
+        }
 
         if (! isValidUsername(username)) {
             ctx.getChannel().sendMessage("Username invalid").queue();
@@ -43,12 +48,19 @@ public class statsCommand implements ICommand {
                 .get("minecraft:" + name)
             );
             */
+            if (!type.contains(":")) {
+                type = "minecraft:" + type;
+            }
+            if (!name.contains(":")) {
+                name = "minecraft:" + name;
+            }
             ctx.getChannel().sendMessage(
-                String.valueOf(((Map<String, Map<String, Integer>>) stats
+                String.valueOf(conversion.convert(
+                    ((Map<String, Map<String, Integer>>) stats
                 .get("stats"))
-                .get("minecraft:" + type)
-                .get("minecraft:" + name))
-            ).queue();
+                .get(type)
+                .get(name))
+            )).queue();
         } catch (IOException e) {
             ctx.getChannel().sendMessage("Something went wrong, please try again.").queue();
             e.printStackTrace();
