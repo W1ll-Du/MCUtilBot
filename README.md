@@ -3,26 +3,28 @@
 ## Commands
 
 #### listAFK
-Lists players who are afk according to [AFK Display](https://vanillatweaks.net/picker/datapacks).<br/>
+Lists players who are afk according to [AFK Display](https://vanillatweaks.net/picker/datapacks).
 
 #### stats \[MCUsername] \[type] \[name] \(conversion)
 Gets statistic for player as defined by [Vanilla Minecraft](https://minecraft.fandom.com/wiki/Statistics).<br/>
 `minecraft:` is filled in if there is no namespace.<br/>
-`conversion` is optional.<br/>
+`conversion` is optional.
 
 #### cmToM \[number]
-Converts cm to m.<br/>
+Converts cm to m.
 
 #### ticksToMinutes \[number]
-Converts ticks to minutes.<br/>
+Converts ticks to minutes.
 
 #### ticksToHours \[number]
-Converts ticks to hours.<br/>
+Converts ticks to hours.
 <br/>
 
 ### Admin Commands
 
 #### rcon \[command]
 Runs the command on the server.<br/>
+<br/>
+<br/>
 
 ## Config
