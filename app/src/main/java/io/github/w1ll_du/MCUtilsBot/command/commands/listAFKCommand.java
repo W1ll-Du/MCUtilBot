@@ -12,6 +12,6 @@ public class listAFKCommand extends ARconCommand {
 
     @Override
     public String getName() {
-        return "checkAFK";
+        return "listAFK";
     }
 }
