@@ -19,6 +19,10 @@ public class statsCommand implements ICommand {
         // the bots will need to be in [server folder]/bot
         // get directly from world/stats/uuid.json
         // ../world/stats/uuid.json
+        if (ctx.getArgs().size() < 3) {
+            ctx.getChannel().sendMessage("Missing Arguments: [username] [stat type] [stat name] (conversion)").queue();
+            return;
+        }
         String username = ctx.getArgs().get(0);
         String type = ctx.getArgs().get(1);
         String name = ctx.getArgs().get(2);
