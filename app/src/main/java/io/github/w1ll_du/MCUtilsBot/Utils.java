@@ -9,6 +9,7 @@ import org.json.simple.parser.ParseException;
 
 import java.util.List;
 import java.util.Map;
+import java.util.StringJoiner;
 
 public class Utils {
     public static Map<String, String> conf;
@@ -50,11 +51,8 @@ public class Utils {
     }
 
     public static String compress(List<String> args) {
-        if (args.size() == 0) return "";
-        String result = args.get(0);
-        for (int i = 1; i < args.size(); i++) {
-            result = result +  " " + args.get(i);
-        }
-        return result;
+        StringJoiner sj = new StringJoiner(" ");
+        for (String arg : args) sj.add(arg);
+        return sj.toString();
     }
 }
