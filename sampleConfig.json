@@ -1,0 +1,15 @@
+{
+  "_RENAME_ME_TO_" : "MCUtilsConfig.json",
+  "token" : "[Your bot token]",
+  "prefix" : "u!",
+  "owner_id" : "[Your user id]",
+  "discord_server_id" : "[Your server id]",
+  "bot_channel_id" : "[Your bot channel id]",
+  "mc_server_ip" : "[Your server ip]",
+  "mc_server_port" : "25565",
+  "rcon_port" : "25575",
+  "rcon_password" : "[Your rcon password id]",
+  "afkDis" : "false",
+  "filterChangelog" : "None",
+  "changelog_channel_id" : "[Your changelog channel id]"
+}
