@@ -35,9 +35,15 @@ public class Listener extends ListenerAdapter {
     @Override
     public void onGuildMessageReceived(@NotNull GuildMessageReceivedEvent event) {
         String raw = event.getMessage().getContentRaw();
-        if (event.getChannel().getId().equals(conf.get("changelog_channel_id"))
-            && ! event.getAuthor().getId().equals(owner_id)) {
-            // TODO: only allow java and filter out bedrock
+        if (event.getChannel().getId().equals(conf.get("changelog_channel_id"))) {
+            if (conf.get("filterChangelog").equals("Java")
+                    && raw.startsWith("Minecraft: Bedrock Edition - ")) {
+                event.getMessage().delete().queue();
+            } else if (conf.get("filterChangelog").equals("Bedrock")
+                    && raw.startsWith("Minecraft: Java Edition - ")) {
+                event.getMessage().delete().queue();
+            }
+            return;
         }
         if (event.getAuthor().isBot()) {
             return;
