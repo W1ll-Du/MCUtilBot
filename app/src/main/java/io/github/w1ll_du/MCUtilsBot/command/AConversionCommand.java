@@ -7,7 +7,11 @@ public abstract class AConversionCommand implements ICommand {
             ctx.getChannel().sendMessage("Missing Arguments: [value]").queue();
             return;
         }
-        ctx.getChannel().sendMessage(String.valueOf(convert(Integer.parseInt(ctx.getArgs().get(0))))).queue();
+        try {
+            ctx.getChannel().sendMessage(String.valueOf(convert(Double.parseDouble(ctx.getArgs().get(0))))).queue();
+        } catch (NumberFormatException e) {
+            ctx.getChannel().sendMessage("Not a number").queue();
+        }
     }
 
     @Override
@@ -15,5 +19,5 @@ public abstract class AConversionCommand implements ICommand {
         return this;
     }
 
-    public abstract double convert(int v);
+    public abstract double convert(double v);
 }

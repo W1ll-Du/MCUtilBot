@@ -10,7 +10,7 @@ public class cmToMCommand extends AConversionCommand {
     }
 
     @Override
-    public double convert(int v) {
-        return v / 100.0;
+    public double convert(double v) {
+        return v / 100;
     }
 }

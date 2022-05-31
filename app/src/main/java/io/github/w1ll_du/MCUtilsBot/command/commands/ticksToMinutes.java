@@ -10,7 +10,7 @@ public class ticksToMinutes extends AConversionCommand {
     }
 
     @Override
-    public double convert(int v) {
-        return v / 1200.0;
+    public double convert(double v) {
+        return v / 1200;
     }
 }
