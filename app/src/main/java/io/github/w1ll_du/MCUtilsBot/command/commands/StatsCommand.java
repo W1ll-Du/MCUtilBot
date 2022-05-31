@@ -12,7 +12,7 @@ import java.nio.file.Paths;
 import java.util.List;
 import java.util.Map;
 
-public class statsCommand implements ICommand {
+public class StatsCommand implements ICommand {
     @Override
     public void handle(CommandContext ctx) {
         // [username] [stat type] [stat name] (conversion)
@@ -27,7 +27,7 @@ public class statsCommand implements ICommand {
         String type = ctx.getArgs().get(1);
         String name = ctx.getArgs().get(2);
         AConversionCommand conversion = new identityCommand();
-        if (ctx.getArgs().size() > 3 && ctx.getManager().getCommand(ctx.getArgs().get(3)) != null) {
+        if (ctx.getArgs().size() > 3 && ctx.getManager().hasCommand(ctx.getArgs().get(3))) {
             conversion = ctx.getManager().getCommand(ctx.getArgs().get(3)).getConverter();
         }
 

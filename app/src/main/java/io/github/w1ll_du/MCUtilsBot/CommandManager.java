@@ -17,12 +17,13 @@ public class CommandManager {
     private final List<ICommand> commands = new ArrayList<>();
 
     public CommandManager(Map<String, String> conf) {
-        addCommand(new statsCommand());
+        addCommand(new StatsCommand());
         addCommand(new cmToMCommand());
         addCommand(new ticksToHours());
         addCommand(new ticksToMinutes());
-        addCommand(new rconCommand());
-        if (conf.get("afkDis").equals("true")) addCommand(new listAFKCommand());
+        addCommand(new RconCommand());
+        addCommand(new HelpCommand());
+        if (conf.get("afkDis").equals("true")) addCommand(new ListAFKCommand());
     }
 
     @Nullable
@@ -60,5 +61,9 @@ public class CommandManager {
 
             cmd.handle(ctx);
         }
+    }
+
+    public Boolean hasCommand(String command) {
+        return commands.stream().anyMatch(c -> command.equals(c.getName()));
     }
 }
